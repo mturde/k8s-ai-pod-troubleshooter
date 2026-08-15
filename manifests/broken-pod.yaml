@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: broken-app
+spec:
+  containers:
+    - name: app
+      image: busybox:1.36
+      command:
+        - sh
+        - -c
+        - |
+          echo "Starting application"
+          sleep 2
+          echo "ERROR: Cannot connect to Redis at redis:6379"
+          exit 1
+  restartPolicy: Always
