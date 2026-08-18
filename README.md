@@ -121,13 +121,18 @@ python analyzer.py --pod broken-app --namespace default
 
 **Metrics:**
 - ⏱️ Analysis time: ~10-30s
-- 🎯 Accuracy: High for common failures
 - 🔐 Privacy: 100% local (no cloud)
 - 💰 Cost: $0
 
+### Tested Scenarios
+
+- ✅ Application crash / non-zero exit
+- ✅ Redis connection failure
+
 ## 🔒 Security
 
-Automatically redacts: passwords, API keys, tokens, connection strings
+Automatically redacts common credential patterns:
+passwords, API keys, tokens and Bearer tokens.
 
 ##  Project Structure
 
@@ -137,8 +142,7 @@ k8s-ai-pod-troubleshooter/
 ├── requirements.txt            # Dependencies
 ├── README.md
 ├── manifests/
-│   └── broken-pod.yaml        # Test pod example
-└── examples/
+    └── broken-pod.yaml        # Test pod example
 ```
 
 ## 📄 License
